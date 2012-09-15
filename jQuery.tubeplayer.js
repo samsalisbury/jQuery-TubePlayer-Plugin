@@ -167,7 +167,6 @@
 		color: 'red', // 'red' or 'white'
 		showinfo: false,
 		modestbranding: true,
-		protocol: 'http', // set to 'https' for compatibility on SSL-enabled pages
 		
 		// with respect to [wmode] - 'transparent' maintains z-index, but disables GPU acceleration
 		wmode: 'transparent', // you probably want to use 'window' when optimizing for mobile devices
@@ -501,7 +500,7 @@
 			// write the api script tag
 			var tag = document.createElement('script');
 		
-			tag.src = o.protocol + "://www.youtube.com/iframe_api";
+			tag.src = "//www.youtube.com/iframe_api";
 		
 			var firstScriptTag = document.getElementsByTagName('script')[0];
 		
@@ -531,7 +530,7 @@
 		    // cleanup swfobjectURL to re-apply the protocol
 		    o.swfobjectURL = o.swfobjectURL.replace('http://', '');
 		    o.swfobjectURL = o.swfobjectURL.replace('https://', '');
-		    o.swfobjectURL = o.protocol + '://' + o.swfobjectURL;
+		    o.swfobjectURL = '//' + o.swfobjectURL;
 		    
 		    $.getScript(o.swfobjectURL, TubePlayer.initFlashPlayerFN(o));
 		    
